@@ -1,0 +1,15 @@
+.empty {
+color: red;
+}
+
+.full {
+color: green;
+}
+
+.emptyBorder {
+  border-color: red;
+}
+
+.fullBorder {
+  border-color: green;
+}
