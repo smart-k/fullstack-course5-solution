@@ -1,18 +1,18 @@
 <ul class="list-group">
-    <li ng-if="$ctrl.items.length == 0" class="list-group-item list-group-item-danger text-center">
+    <li ng-if="length == 0" class="list-group-item list-group-item-danger text-center">
         <strong> Nothing found! </strong>
     </li>
-    <li ng-if="$ctrl.items.length > 0" class="list-group-item active">
-    <span class="badge">{{$ctrl.items.length}}</span>
-    <strong> Item's description contains: <span style="color:red;">{{$ctrl.search}}</span> </strong>
+    <li ng-if="length > 0" class="list-group-item active">
+    <span class="badge">{{length}}</span>
+    <strong> Item's description contains: <span style="color:red;">{{search}}</span> </strong>
   </li>
-    <li ng-repeat="item in $ctrl.items" class="list-group-item">
+    <li ng-repeat="item in items" class="list-group-item">
         <div class="row">
         <div class="col-sm-4"><strong>{{item.name}}</strong></div>
         <div class="col-sm-1">{{item.short_name}}</div>
         <div class="col-sm-4"><em>{{item.description}}</em></div>
         <div class="col-sm-3 text-right">
-            <button ng-click="$ctrl.onRemove({index: $index});" class="btn btn-info">
+            <button ng-click="onRemove({index: $index});" class="btn btn-info">
              Don't want this one!
              </button>
         </div>
