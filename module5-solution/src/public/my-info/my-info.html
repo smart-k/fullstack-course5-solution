@@ -1,0 +1,54 @@
+<h2 ng-show="myInfoCtrl.messageStatus" class="text-center">
+    Not Signed Up Yet.
+<a ui-sref="public.signup">Sign Up Now!</a>
+</h2>
+<table class="table " ng-hide="myInfoCtrl.messageStatus">
+  <thead>
+    <tr>
+        <th>First Name</th>
+        <th>Last Name</th>
+        <th>Email</th>
+        <th>Phone</th>
+        <th>Favorite Dish</th>
+    </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>{{myInfoCtrl.user.firstname}}</td>
+        <td>{{myInfoCtrl.user.lastname}}</td>
+        <td>{{myInfoCtrl.user.email}}</td>
+        <td>{{myInfoCtrl.user.phone}}</td>
+        <td>
+        <div class="menu-item-tile">
+          <div class="row">
+            <div class="col-sm-5">
+              <div class="menu-item-photo">
+                <div>
+                  {{myInfoCtrl.user.menuItem.short_name}}
+                </div>
+                <img class="img-responsive" width="250" height="150"
+                     ng-src="{{myInfoCtrl.basePath}}/images/{{myInfoCtrl.user.menuItem.short_name}}.jpg"
+                     alt="{{myInfoCtrl.user.menuItem.name}}">
+              </div>
+              <div class="menu-item-price">
+                {{myInfoCtrl.user.menuItem.price_small | currency}}
+                <span> {{$ctrl.menuItem.small_portion_name}}</span>
+                {{$ctrl.menuItem.price_large | currency}}
+                <span>{{myInfoCtrl.user.menuItem.large_portion_name}}
+                </span>
+              </div>
+            </div>
+            <div class="menu-item-description col-sm-7">
+              <h3 class="menu-item-title">
+                {{myInfoCtrl.user.menuItem.name}}
+              </h3>
+              <p class="menu-item-details">
+                {{myInfoCtrl.user.menuItem.description}}
+              </p>
+            </div>
+          </div>
+        </div>
+        </td>
+      </tr>
+    </tbody>
+</table>

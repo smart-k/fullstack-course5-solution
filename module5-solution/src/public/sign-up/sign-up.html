@@ -1,0 +1,74 @@
+<div class="container">
+  <div class="row">
+    <div class="col-sm-6">
+      <fieldset>
+          <legend class="text-center">Registration</legend>
+          <form name='regForm' novalidate>
+
+            <input type="text" class="form-control" name="firstName" placeholder="First name"
+              ng-model="signUpCtrl.user.firstname"
+              required>
+              <span
+                ng-if="regForm.firstName.$error.required && regForm.email.$touched">
+                First name required
+              </span>
+              <br>
+
+              <input type="text" class="form-control" name="lastName" placeholder="Last name"
+                ng-model="signUpCtrl.user.lastname"
+                required>
+                <span
+                  ng-if="regForm.lastName.$error.required && regForm.email.$touched">
+                  Last name required
+                </span>
+                <br>
+            <input type="email" class="form-control" name="email" placeholder="Email"
+              ng-model="signUpCtrl.user.email"
+              required>
+              <span ng-if="regForm.email.$invalid && regForm.email.$touched">
+                Must be a valid email address: handle@domain format
+              </span>
+              <br>
+
+            <input type="text" class="form-control" name="phone" placeholder="Phone ###-###-####"
+              ng-model="signUpCtrl.user.phone"
+              pattern="(\d{3})-(\d{3})-(\d{4})"
+              required>
+              <span ng-if="regForm.phone.$invalid && regForm.phone.$touched">
+                Phone must be in the format ###-###-####.
+              </span>
+              <br>
+
+              <input type="text" class="form-control" name="menuNumber" placeholder="Menu number of your favorite dish"
+                ng-model="signUpCtrl.user.favoriteDish"
+                ng-blur="signUpCtrl.checkMenuItem()"
+                required>
+              <span ng-show="signUpCtrl.errorStatus">
+              No such menu number exists
+              </span>
+                <br>
+
+          <div class="form-group text-center">
+             <input type="checkbox"
+                   name="newsletter"
+                   ng-model="signUpCtrl.user.newsletter">
+              Subscribe for the restaurant newsletter
+          </div>
+
+            <div class="text-center">
+              <button class="btn btn-default btn-lg"
+                ng-disabled="regForm.$invalid"
+                ng-click="signUpCtrl.submit()"><strong>Submit</strong></button>
+            </div>
+          </form>
+        </fieldset>
+        <br>
+        <p ng-show="signUpCtrl.messageStatus"
+            class="text-center">
+            <u>Your information has been saved</u>
+        </p>
+    </div>
+
+  </div>
+
+</div>
